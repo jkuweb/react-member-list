@@ -26,7 +26,8 @@ export const ListPage: React.FC = () => {
           <React.Fragment key={member.id}>
             <img src={member.avatar_url} alt={member.login} />
             <div>{member.id}</div>
-            <div>{member.login}</div>
+            <div>
+              <Link to={`/detail/${member.login}`}>{member.login}</Link></div>
           </React.Fragment>
         ))}
       </div>
