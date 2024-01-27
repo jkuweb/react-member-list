@@ -15,7 +15,7 @@ export const DetailPage: React.FC = () => {
   const { login } = useParams();
 
   React.useEffect(() => {
-    fetch(`----://api.github.com/users/${login}`)
+    fetch(`https://api.github.com/users/${login}`)
       .then((response) => response.json())
       .then(setMember);
   }, [login]);

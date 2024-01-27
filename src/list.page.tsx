@@ -1,20 +1,9 @@
 import React from "react";
 import { Link, generatePath } from "react-router-dom";
-
-interface MemberEntity {
-  id: number;
-  login: string;
-  avatar_url: string;
-}
+import { MembersContext } from "./main";
 
 export const ListPage: React.FC = () => {
-  const [memberList, setMemberList] = React.useState<MemberEntity[]>(membersList);
-
-  React.useEffect(() => {
-    fetch("----://api.github.com/orgs/lemoncode/members")
-      .then((response) => response.json())
-      .then(setMemberList);
-  }, []);
+ const {memberList} = React.useContext(MembersContext)
   return (
     <>
       <h2>Hello from List Page</h2>
