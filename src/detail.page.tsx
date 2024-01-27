@@ -1,5 +1,7 @@
 import React from "react";
+
 import {useNavigate, useParams } from "react-router-dom";
+
 
 export const DetailPage: React.FC = () => {
   const navigate = useNavigate()
