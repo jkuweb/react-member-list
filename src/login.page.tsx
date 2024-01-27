@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 interface UserFormDataModel {
   userName: string;
@@ -10,6 +11,7 @@ export const LoginPage: React.FC = () => {
     userName: "",
     password: "",
   });
+  const navigate = useNavigate();
 
   const handleChange =
     (field: keyof UserFormDataModel) =>
@@ -19,6 +21,12 @@ export const LoginPage: React.FC = () => {
         [field]: e.target.value,
       });
     };
+
+  const handleClick = () => {
+    if (userFormData.userName === "admin" && userFormData.password === "test") {
+      navigate("/list");
+    }
+  };
 
   return (
     <>
@@ -41,7 +49,7 @@ export const LoginPage: React.FC = () => {
         onChange={handleChange("password")}
         placeholder="Please, insert your password"
       />
-      <button>Enter</button>
+      <button onClick={handleClick}>Enter</button>
     </>
   );
 };
