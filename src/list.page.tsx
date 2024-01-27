@@ -8,10 +8,10 @@ interface MemberEntity {
 }
 
 export const ListPage: React.FC = () => {
-  const [memberList, setMemberList] = React.useState<MemberEntity[]>([]);
+  const [memberList, setMemberList] = React.useState<MemberEntity[]>(membersList);
 
   React.useEffect(() => {
-    fetch("https://api.github.com/orgs/lemoncode/members")
+    fetch("----://api.github.com/orgs/lemoncode/members")
       .then((response) => response.json())
       .then(setMemberList);
   }, []);
