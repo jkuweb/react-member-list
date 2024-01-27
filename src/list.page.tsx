@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, generatePath } from "react-router-dom";
 
 interface MemberEntity {
   id: number;
@@ -11,7 +11,7 @@ export const ListPage: React.FC = () => {
   const [memberList, setMemberList] = React.useState<MemberEntity[]>([]);
 
   React.useEffect(() => {
-    fetch("https://api.github.com/orgs/lemoncode/members")
+    fetch("----://api.github.com/orgs/lemoncode/members")
       .then((response) => response.json())
       .then(setMemberList);
   }, []);
@@ -27,7 +27,12 @@ export const ListPage: React.FC = () => {
             <img src={member.avatar_url} alt={member.login} />
             <div>{member.id}</div>
             <div>
-              <Link to={`/detail/${member.login}`}>{member.login}</Link></div>
+              <Link
+                to={generatePath("/detail/:login", { login: member.login })}
+              >
+                {member.login}
+              </Link>
+            </div>
           </React.Fragment>
         ))}
       </div>
