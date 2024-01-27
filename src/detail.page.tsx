@@ -22,11 +22,17 @@ export const DetailPage: React.FC = () => {
 
   return (
     <>
-      <img src={member.avatar_url} alt={member.login} />
-      <h3>{member.login}</h3>
-      <h4>ID:{member.id}</h4>
-      <h4>Company:{member.company}</h4>
-      <h4>Bio:{member.bio}</h4>
+      {member ? (
+        <>
+          <img src={member.avatar_url} alt={member.login} />
+          <h3>{member.login}</h3>
+          <h4>ID:{member.id}</h4>
+          <h4>Company:{member.company}</h4>
+          <h4>Bio:{member.bio}</h4>
+        </>
+      ) : (
+        <div>Loading...</div>
+      )}
       <button onClick={() => navigate(-1)}>Atras</button>
     </>
   );
