@@ -29,7 +29,7 @@ export const LoginPage: React.FC = () => {
         name="userName"
         id="userName"
         value={userFormData.userName}
-        onChange={handleChange("userName")}
+        onChange={handleChange("userName")} // onChange={handleChange("userName")}  == onChange={(e) =>handleChange("userName")(e)}
         placeholder="Please, insert your name"
       />
       <label htmlFor="password">Password:</label>
