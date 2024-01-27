@@ -1,8 +1,8 @@
 import React from "react";
 
 interface UserFormDataModel {
-  userName: string
-  password: string
+  userName: string;
+  password: string;
 }
 
 export const LoginPage: React.FC = () => {
@@ -11,12 +11,14 @@ export const LoginPage: React.FC = () => {
     password: "",
   });
 
-  const handleChange = (field: keyof UserFormDataModel  ,e: React.ChangeEvent<HTMLInputElement>) => {
-    setUserFormData({
-      ...userFormData,
-      [field]: e.target.value,
-    });
-  };
+  const handleChange =
+    (field: keyof UserFormDataModel) =>
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setUserFormData({
+        ...userFormData,
+        [field]: e.target.value,
+      });
+    };
 
   return (
     <>
@@ -27,7 +29,7 @@ export const LoginPage: React.FC = () => {
         name="userName"
         id="userName"
         value={userFormData.userName}
-        onChange={(e) => handleChange('userName', e)}
+        onChange={handleChange("userName")}
         placeholder="Please, insert your name"
       />
       <label htmlFor="password">Password:</label>
@@ -36,7 +38,7 @@ export const LoginPage: React.FC = () => {
         name="password"
         id="password"
         value={userFormData.password}
-        onChange={(e) => handleChange('password', e)}
+        onChange={handleChange("password")}
         placeholder="Please, insert your password"
       />
       <button>Enter</button>
