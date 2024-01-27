@@ -22,7 +22,8 @@ export const LoginPage: React.FC = () => {
       });
     };
 
-  const handleClick = () => {
+  const handleSubmit = (e:React.FormEvent<HTMLFormElement> ) => {
+    e.preventDefault()
     if (userFormData.userName === "admin" && userFormData.password === "test") {
       navigate("/list");
     }
@@ -30,6 +31,7 @@ export const LoginPage: React.FC = () => {
 
   return (
     <>
+    <form onSubmit={handleSubmit}>
       <h1>Login</h1>
       <label htmlFor="userName">Name:</label>
       <input
@@ -49,7 +51,8 @@ export const LoginPage: React.FC = () => {
         onChange={handleChange("password")}
         placeholder="Please, insert your password"
       />
-      <button onClick={handleClick}>Enter</button>
+      <button type="submit">Enter</button>
+    </form>
     </>
   );
 };
