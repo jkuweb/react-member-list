@@ -6,16 +6,10 @@ export const LoginPage: React.FC = () => {
     password: "",
   });
 
-  const handleChangeUserName = (e:React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserFormData({
       ...userFormData,
-      userName: e.target.value,
-    });
-  };
-  const handleChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setUserFormData({
-      ...userFormData,
-      password: e.target.value,
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -25,17 +19,19 @@ export const LoginPage: React.FC = () => {
       <label htmlFor="userName">Name:</label>
       <input
         type="text"
+        name="userName"
         id="userName"
         value={userFormData.userName}
-        onChange={handleChangeUserName}
+        onChange={handleChange}
         placeholder="Please, insert your name"
       />
       <label htmlFor="password">Password:</label>
       <input
         type="password"
+        name="password"
         id="password"
         value={userFormData.password}
-        onChange={handleChangePassword}
+        onChange={handleChange}
         placeholder="Please, insert your password"
       />
       <button>Enter</button>
