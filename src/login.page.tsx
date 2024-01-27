@@ -1,17 +1,55 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+
+interface UserFormDataModel {
+  userName: string;
+  password: string;
+}
 
 export const LoginPage: React.FC = () => {
-  const [userName, setUserName] = React.useState('')
-  const [password, setPassword] = React.useState('')
+  const [userFormData, setUserFormData] = React.useState<UserFormDataModel>({
+    userName: "",
+    password: "",
+  });
+  const navigate = useNavigate();
+
+  const handleChange =
+    (field: keyof UserFormDataModel) =>
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setUserFormData({
+        ...userFormData,
+        [field]: e.target.value,
+      });
+    };
+
+  const handleClick = () => {
+    if (userFormData.userName === "admin" && userFormData.password === "test") {
+      navigate("/list");
+    }
+  };
+
   return (
     <>
       <h1>Login</h1>
       <label htmlFor="userName">Name:</label>
-      <input type="text" id="userName" value={userName} onChange={(e) => setUserName(e.target.value)} placeholder="Please, insert your name" />
+      <input
+        type="text"
+        name="userName"
+        id="userName"
+        value={userFormData.userName}
+        onChange={handleChange("userName")} // onChange={handleChange("userName")}  == onChange={(e) =>handleChange("userName")(e)}
+        placeholder="Please, insert your name"
+      />
       <label htmlFor="password">Password:</label>
-      <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Please, insert your password"/>
-      <button>Enter</button>
-      
-       </>
-  )
-}
+      <input
+        type="password"
+        name="password"
+        id="password"
+        value={userFormData.password}
+        onChange={handleChange("password")}
+        placeholder="Please, insert your password"
+      />
+      <button onClick={handleClick}>Enter</button>
+    </>
+  );
+};
