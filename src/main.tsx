@@ -11,6 +11,7 @@ interface MemberEntity {
 
 interface MembersCountextModel {
   memberList: MemberEntity[];
+  clear: () => void
 }
 
 export const MembersContext = React.createContext<MembersCountextModel>(null);
@@ -18,13 +19,17 @@ export const MembersContext = React.createContext<MembersCountextModel>(null);
 const MembersProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const [memberList, setMemberList] = React.useState<MemberEntity[]>([]);
 
+  const clear = () => {
+    setMemberList([])
+  }
+
   React.useEffect(() => {
     fetch("https://api.github.com/orgs/lemoncode/members")
       .then((response) => response.json())
       .then(setMemberList);
   }, []);
   return (
-    <MembersContext.Provider value={{ memberList }}>
+    <MembersContext.Provider value={{ memberList , clear}}>
       {children}
     </MembersContext.Provider>
   );
