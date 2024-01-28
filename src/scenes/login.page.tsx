@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { routes } from "@/router";
-import { CenteredLayout } from "@/layouts/centered.layout";
+import { CenteredLayout } from "@/layouts";
 
 interface UserFormDataModel {
   userName: string;
