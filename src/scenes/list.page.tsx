@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, generatePath } from "react-router-dom";
-import { MembersContext } from "./main";
 
 interface MemberEntity {
   id: number;
@@ -12,7 +11,7 @@ export const ListPage: React.FC = () => {
   const [memberList, setMemberList] = React.useState<MemberEntity[]>([]);
 
   React.useEffect(() => {
-    fetch("----://api.github.com/orgs/lemoncode/members")
+    fetch("https://api.github.com/orgs/lemoncode/members")
       .then((response) => response.json())
       .then(setMemberList);
   }, []);
