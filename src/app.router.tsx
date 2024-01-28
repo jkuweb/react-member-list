@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { DetailPage } from "./detail.page";
-import { ListPage } from "./list.page";
+import { DetailPage } from "./scenes/detail.page";
+import { ListPage } from "./scenes/list.page";
 import { LoginPage } from "./login.page";
 
 export const AppRouter = () => {
