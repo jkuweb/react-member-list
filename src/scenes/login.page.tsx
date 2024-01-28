@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { routes } from "@/router";
+import { CenteredLayout } from "@/layouts/centered.layout";
 
 interface UserFormDataModel {
   userName: string;
@@ -31,7 +32,7 @@ export const LoginPage: React.FC = () => {
   };
 
   return (
-    <>
+    <CenteredLayout>
     <form onSubmit={handleSubmit}>
       <h1>Login</h1>
       <label htmlFor="userName">Name:</label>
@@ -54,6 +55,6 @@ export const LoginPage: React.FC = () => {
       />
       <button type="submit">Enter</button>
     </form>
-    </>
+    </CenteredLayout>
   );
 };
