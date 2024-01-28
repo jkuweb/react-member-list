@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, generatePath } from "react-router-dom";
+import { switchRoutes } from "@/router";
 
 interface MemberEntity {
   id: number;
@@ -30,7 +31,7 @@ export const ListPage: React.FC = () => {
             <div>
 
             <Link
-                to={generatePath("/detail/:login", { login: member.login })}
+                to={generatePath(switchRoutes.detail, { login: member.login })}
               >
                 {member.login}
               </Link>
