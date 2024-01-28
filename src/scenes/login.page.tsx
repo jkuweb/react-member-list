@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { switchRoutes } from "@/router";
 
 interface UserFormDataModel {
   userName: string;
@@ -25,7 +26,7 @@ export const LoginPage: React.FC = () => {
   const handleSubmit = (e:React.FormEvent<HTMLFormElement> ) => {
     e.preventDefault()
     if (userFormData.userName === "admin" && userFormData.password === "test") {
-      navigate("/list");
+      navigate(switchRoutes.list);
     }
   };
 
