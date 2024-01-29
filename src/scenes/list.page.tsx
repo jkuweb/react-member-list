@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { routes } from "@/router";
 import { MembersContext } from "@/main";
 import { AppLayout } from "@/layouts";
+import { UserProfileContext } from "@/core/providers/user-profile/user-profile.context";
 
 interface MemberEntity {
   id: number;
@@ -13,9 +14,8 @@ interface MemberEntity {
 export const ListPage: React.FC = () => {
   const {memberList, clear} = React.useContext(MembersContext)
 
-
   return (
-    <AppLayout>
+      <AppLayout>
       <h2>Hello from List Page</h2>
       <button onClick={clear} >Clear</button>
       <div className="list-user-list-container">
@@ -32,6 +32,6 @@ export const ListPage: React.FC = () => {
           </React.Fragment>
         ))}
       </div>
-    </AppLayout>
+      </AppLayout>
   );
 };

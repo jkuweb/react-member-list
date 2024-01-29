@@ -1,7 +1,6 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { routes } from "@/router";
 import { CenteredLayout } from "@/layouts";
+import { UserProfileContext } from "@/core/providers/user-profile/user-profile.context";
 
 interface UserFormDataModel {
   userName: string;
@@ -13,7 +12,7 @@ export const LoginPage: React.FC = () => {
     userName: "",
     password: "",
   });
-  const navigate = useNavigate();
+  const {setUsername} = React.useContext(UserProfileContext)
 
   const handleChange =
     (field: keyof UserFormDataModel) =>
@@ -27,7 +26,7 @@ export const LoginPage: React.FC = () => {
   const handleSubmit = (e:React.FormEvent<HTMLFormElement> ) => {
     e.preventDefault()
     if (userFormData.userName === "admin" && userFormData.password === "test") {
-      navigate(routes.list);
+      setUsername(userFormData.userName)
     }
   };
 

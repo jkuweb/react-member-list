@@ -1,3 +1,4 @@
 export interface UserProfileContextModel {
-  username: string
+  username: string;
+  setUsername: (username: string) => void;
 }

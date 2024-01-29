@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { App } from "@/app";
 import "@/App.css";
+import { UserProfileProvider } from "./core/providers/user-profile/user-profile.provider";
 
 interface MemberEntity {
   id: number;
@@ -37,8 +38,10 @@ const MembersProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
+    <UserProfileProvider>
     <MembersProvider>
       <App />
     </MembersProvider>
+    </UserProfileProvider>
   </React.StrictMode>
 );
