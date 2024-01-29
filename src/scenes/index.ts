@@ -1,3 +1,3 @@
 export * from './login.scene'
-export * from './list.page'
+export * from './member-list.scene'
 export * from './detail.page'
