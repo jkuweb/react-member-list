@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { switchRoutes } from "@/router";
+import { routes } from "@/router";
+import { AppLayout } from "@/layouts";
 
 interface MemberDetailEntity {
   id: number;
@@ -22,7 +23,7 @@ export const DetailPage: React.FC = () => {
   }, [login]);
 
   return (
-    <>
+    <AppLayout>
       {member ? (
         <>
           <img src={member.avatar_url} alt={member.login} />
@@ -34,7 +35,7 @@ export const DetailPage: React.FC = () => {
       ) : (
         <div>Loading...</div>
       )}
-      <button onClick={() => navigate(switchRoutes.list)}>Atras</button>
-    </>
+      <button onClick={() => navigate(routes.list)}>Atras</button>
+    </AppLayout>
   );
 };

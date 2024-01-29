@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { routes } from "@/router";
+import { MembersContext } from "@/main";
+import { AppLayout } from "@/layouts";
 
 interface MemberEntity {
   id: number;
@@ -9,17 +11,13 @@ interface MemberEntity {
 }
 
 export const ListPage: React.FC = () => {
-  const [memberList, setMemberList] = React.useState<MemberEntity[]>([]);
+  const {memberList, clear} = React.useContext(MembersContext)
 
-  React.useEffect(() => {
-    fetch("https://api.github.com/orgs/lemoncode/members")
-      .then((response) => response.json())
-      .then(setMemberList);
-  }, []);
 
   return (
-    <>
+    <AppLayout>
       <h2>Hello from List Page</h2>
+      <button onClick={clear} >Clear</button>
       <div className="list-user-list-container">
         <span className="list-header">Avatar</span>
         <span className="list-header">ID</span>
@@ -34,6 +32,6 @@ export const ListPage: React.FC = () => {
           </React.Fragment>
         ))}
       </div>
-    </>
+    </AppLayout>
   );
 };

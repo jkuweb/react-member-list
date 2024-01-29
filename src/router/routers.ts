@@ -12,7 +12,11 @@ export const switchRoutes: SwitchRoutes = {
   detail: "/detail/:login",
 };
 
-export const routes = {
+interface Routes extends Omit<SwitchRoutes, "detail"> {
+  detail: (login: string) => string;
+}
+
+export const routes: Routes = {
   ...switchRoutes,
   detail: (login: string) => generatePath(switchRoutes.detail, { login }),
 };

@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-import { LoginPage, ListPage, DetailPage } from "@/scenes";
 import { switchRoutes } from "./routers";
+import { LoginPage, ListPage, DetailPage } from "@/scenes";
 
 export const AppRouter = () => {
   return (
@@ -10,8 +9,8 @@ export const AppRouter = () => {
         <Route path={switchRoutes.root} element={<LoginPage />} />
         <Route path={switchRoutes.list} element={<ListPage />} />
         <Route path={switchRoutes.detail} element={<DetailPage />} />
-        <Route path="/*" element={<div>404 Not Found</div>} />
+        <Route path="/*" element={<div>404 Not Found</div>}/>
       </Routes>
     </BrowserRouter>
-  );
+  )
 };

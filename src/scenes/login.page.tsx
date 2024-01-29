@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { switchRoutes } from "@/router";
+import { routes } from "@/router";
+import { CenteredLayout } from "@/layouts";
 
 interface UserFormDataModel {
   userName: string;
@@ -26,12 +27,12 @@ export const LoginPage: React.FC = () => {
   const handleSubmit = (e:React.FormEvent<HTMLFormElement> ) => {
     e.preventDefault()
     if (userFormData.userName === "admin" && userFormData.password === "test") {
-      navigate(switchRoutes.list);
+      navigate(routes.list);
     }
   };
 
   return (
-    <>
+    <CenteredLayout>
     <form onSubmit={handleSubmit}>
       <h1>Login</h1>
       <label htmlFor="userName">Name:</label>
@@ -54,6 +55,6 @@ export const LoginPage: React.FC = () => {
       />
       <button type="submit">Enter</button>
     </form>
-    </>
+    </CenteredLayout>
   );
 };
