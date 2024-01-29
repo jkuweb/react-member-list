@@ -1,3 +1,3 @@
-export * from './login.page'
+export * from './login.scene'
 export * from './list.page'
 export * from './detail.page'
