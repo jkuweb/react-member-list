@@ -3,13 +3,6 @@ import { Link } from "react-router-dom";
 import { routes } from "@/router";
 import { MembersContext } from "@/main";
 import { AppLayout } from "@/layouts";
-import { UserProfileContext } from "@/core/providers/user-profile/user-profile.context";
-
-interface MemberEntity {
-  id: number;
-  login: string;
-  avatar_url: string;
-}
 
 export const ListPage: React.FC = () => {
   const {memberList, clear} = React.useContext(MembersContext)

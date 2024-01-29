@@ -1,6 +1,6 @@
 import React from "react";
 import { CenteredLayout } from "@/layouts";
-import { UserProfileContext } from "@/core/providers/user-profile/user-profile.context";
+import { UserProfileContext } from "@/core/providers/user-profile";
 
 interface UserFormDataModel {
   userName: string;

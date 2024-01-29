@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { App } from "@/app";
 import "@/App.css";
-import { UserProfileProvider } from "./core/providers/user-profile/user-profile.provider";
+import { UserProfileProvider } from "@/core/providers/user-profile";
 
 interface MemberEntity {
   id: number;
@@ -12,7 +12,7 @@ interface MemberEntity {
 
 interface MembersCountextModel {
   memberList: MemberEntity[];
-  clear: () => void
+  clear: () => void;
 }
 
 export const MembersContext = React.createContext<MembersCountextModel>(null);
@@ -21,8 +21,8 @@ const MembersProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const [memberList, setMemberList] = React.useState<MemberEntity[]>([]);
 
   const clear = () => {
-    setMemberList([])
-  }
+    setMemberList([]);
+  };
 
   React.useEffect(() => {
     fetch("https://api.github.com/orgs/lemoncode/members")
@@ -30,7 +30,7 @@ const MembersProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
       .then(setMemberList);
   }, []);
   return (
-    <MembersContext.Provider value={{ memberList , clear}}>
+    <MembersContext.Provider value={{ memberList, clear }}>
       {children}
     </MembersContext.Provider>
   );
@@ -39,9 +39,9 @@ const MembersProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <UserProfileProvider>
-    <MembersProvider>
-      <App />
-    </MembersProvider>
+      <MembersProvider>
+        <App />
+      </MembersProvider>
     </UserProfileProvider>
   </React.StrictMode>
 );
