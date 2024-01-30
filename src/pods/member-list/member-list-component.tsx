@@ -15,7 +15,7 @@ export const MemberList: React.FC<Props> = (props) => {
       <span className="list-header">Name</span>
       {members.map((member) => (
         <React.Fragment key={member.id}>
-          <img src={member.avatar_url} alt={member.login} />
+          <img src={member.avatarUrl} alt={member.login} />
           <div>{member.id}</div>
           <div>
             <Link to={routes.detail(member.login)}>{member.login}</Link>
