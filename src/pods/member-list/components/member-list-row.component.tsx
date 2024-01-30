@@ -13,7 +13,7 @@ export const MemberListRow: React.FC<Prop> = (props) => {
       <img src={member.avatarUrl} alt={member.login} />
       <div>{member.id}</div>
       <div>
-        <a href="#" onClick={onClick}>{member.login}</a>
+        <button onClick={onClick}>{member.login}</button>
       </div>
     </>
   );

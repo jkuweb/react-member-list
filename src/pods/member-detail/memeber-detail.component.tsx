@@ -1,6 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { routes } from "@/router";
 import { MemberDetailEntity } from "./member-detail.vm";
 
 interface Props {
@@ -8,7 +6,6 @@ interface Props {
 }
 export const MemberDetail: React.FC<Props> = (props) => {
   const { member } = props;
-  const navigate = useNavigate();
   return (
     <>
       {member ? (
@@ -22,7 +19,6 @@ export const MemberDetail: React.FC<Props> = (props) => {
       ) : (
         <div>Loading...</div>
       )}
-      <button onClick={() => navigate(routes.list)}>Volver a la lista</button>
     </>
   );
 };

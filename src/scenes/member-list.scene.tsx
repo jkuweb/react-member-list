@@ -1,18 +1,25 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { routes } from "@/router";
 import { AppLayout } from "@/layouts";
 import { MemberListContainer } from "@/pods/member-list";
+import { MemberDetailContainer } from "@/pods/member-detail";
 
 export const MemberListScene: React.FC = () => {
-  const navigate = useNavigate()
+ const [selectedLogin, setSelectedLogin] = React.useState<string>('')
 
   const handleSelect = (login: string) => {
-    navigate(routes.detail(login))
+    setSelectedLogin(login)
   }
   return (
       <AppLayout>
+        <div style={{display:"flex"}}>
       <MemberListContainer onSelect={handleSelect}/>
+        {selectedLogin && (
+          <div>
+            <MemberDetailContainer login={selectedLogin}/>
+          </div>
+        )}
+
+        </div>
       </AppLayout>
   );
 };
