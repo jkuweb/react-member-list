@@ -4,6 +4,27 @@
   grid-template-rows: 50px 1fr;
 }
 
+.layout-app-container > button {
+  width: 11rem;
+  margin: 0 auto;
+  height: 3rem;
+  border: 0;
+  background-color: coral;
+  cursor: pointer;
+  letter-spacing: .02rem;
+}
+
+.layout-app-container > button:hover {
+  background-color: rgb(156, 59, 24);
+  color: aliceblue;
+}
+
+.layout-app-container > img {
+  margin: 0 auto;
+  max-width: 35%;
+  margin-top: 3rem;
+}
+
 .layout-app-header {
   color: white;
   background-color: #007661;

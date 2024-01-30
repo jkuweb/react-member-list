@@ -2,7 +2,7 @@
 export interface MemberDetailEntity {
   id: number;
   login: string;
-  avatar_url: string;
+  avatarUrl: string;
   bio: string;
   company: string;
 }

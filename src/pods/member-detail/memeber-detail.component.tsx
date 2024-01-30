@@ -1,6 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { routes } from "@/router";
 import { MemberDetailEntity } from "./member-detail.vm";
 
 interface Props {
@@ -8,12 +6,11 @@ interface Props {
 }
 export const MemberDetail: React.FC<Props> = (props) => {
   const { member } = props;
-  const navigate = useNavigate();
   return (
     <>
       {member ? (
         <>
-          <img src={member.avatar_url} alt={member.login} />
+          <img src={member.avatarUrl} alt={member.login} />
           <h3>{member.login}</h3>
           <h4>ID:{member.id}</h4>
           <h4>Company:{member.company}</h4>
@@ -22,7 +19,6 @@ export const MemberDetail: React.FC<Props> = (props) => {
       ) : (
         <div>Loading...</div>
       )}
-      <button onClick={() => navigate(routes.list)}>Atras</button>
     </>
   );
 };

@@ -1,26 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { routes } from "@/router";
-import { MemberEntity } from "./member-list.vm";
+import { Member } from "./member-list.vm";
+import { MemberListHeader, MemberListRow } from "./components";
 
 interface Props {
-  members: MemberEntity[];
+  members: Member[];
+  onSelect: (login: string) => void
 }
 export const MemberList: React.FC<Props> = (props) => {
-  const { members } = props;
+  const { members, onSelect } = props;
   return (
     <div className="list-user-list-container">
-      <span className="list-header">Avatar</span>
-      <span className="list-header">ID</span>
-      <span className="list-header">Name</span>
+      <MemberListHeader/>
       {members.map((member) => (
-        <React.Fragment key={member.id}>
-          <img src={member.avatar_url} alt={member.login} />
-          <div>{member.id}</div>
-          <div>
-            <Link to={routes.detail(member.login)}>{member.login}</Link>
-          </div>
-        </React.Fragment>
+        <MemberListRow key={member.id} member={member} onClick={() => onSelect(member.login)}/>
       ))}
     </div>
   );
