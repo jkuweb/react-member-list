@@ -13,7 +13,7 @@ export const MemberDetail: React.FC<Props> = (props) => {
     <>
       {member ? (
         <>
-          <img src={member.avatar_url} alt={member.login} />
+          <img src={member.avatarUrl} alt={member.login} />
           <h3>{member.login}</h3>
           <h4>ID:{member.id}</h4>
           <h4>Company:{member.company}</h4>
