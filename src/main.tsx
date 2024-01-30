@@ -5,7 +5,6 @@ import { MemberEntity } from "./pods/member-list/member-list.vm";
 import { App } from "@/app";
 import "@/App.css";
 
-
 interface MembersCountextModel {
   memberList: MemberEntity[];
 }

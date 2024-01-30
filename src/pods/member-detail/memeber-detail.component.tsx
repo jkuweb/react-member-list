@@ -22,7 +22,7 @@ export const MemberDetail: React.FC<Props> = (props) => {
       ) : (
         <div>Loading...</div>
       )}
-      <button onClick={() => navigate(routes.list)}>Atras</button> 
+      <button onClick={() => navigate(routes.list)}>Atras</button>
     </>
   );
 };
