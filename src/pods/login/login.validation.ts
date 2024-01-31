@@ -5,16 +5,16 @@ const validationSchema = {
     username: [
       {
         validator: Validators.required,
-        message: 'valor requerido'
+        message: 'required'
       },
       {
         validator: Validators.email,
-        message: 'introduce un email válido'
+        message: 'Please, insert a valid email'
       }],
     password: [Validators.required, {
       validator: Validators.minLength,
       customArgs: { length: 4 },
-      message: 'mínimo 4 caracteres'
+      message: 'minimum 4 characters'
     }],
   },
 };
