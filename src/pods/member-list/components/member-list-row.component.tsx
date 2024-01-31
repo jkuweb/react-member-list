@@ -1,9 +1,10 @@
 import React from "react";
 import { Member } from "../member-list.vm";
+import { ButtonList } from "@/common/components/button";
 
 interface Prop {
   member: Member;
-  onClick: () => void
+  onClick: () => void;
 }
 
 export const MemberListRow: React.FC<Prop> = (props) => {
@@ -13,7 +14,16 @@ export const MemberListRow: React.FC<Prop> = (props) => {
       <img src={member.avatarUrl} alt={member.login} />
       <div>{member.id}</div>
       <div>
-        <button onClick={onClick}>{member.login}</button>
+        <ButtonList
+          variant="contained"
+          sx={{
+            backgroundColor: "#0d3a3a",
+          }}
+          size="medium"
+          onClick={onClick}
+        >
+          {member.login}
+        </ButtonList>
       </div>
     </>
   );

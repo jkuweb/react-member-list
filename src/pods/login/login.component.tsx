@@ -1,14 +1,12 @@
 import React from "react";
+import { Card, CardHeader, CardContent } from "@/common/components/card";
 import {
-  Card,
-  CardHeader,
-  CardContent,
-  Button,
+  FormControl,
+  Input,
   InputLabel,
   FormHelperText,
-  Input,
-  FormControl,
-} from "@mui/material";
+} from "@/common/components/forms";
+import { Button } from "@/common/components/button";
 import {
   LoginFormData,
   LoginFormErrors,
@@ -31,7 +29,6 @@ export const Login: React.FC<Props> = (props) => {
   );
 
   const hasErrors = Object.keys(errors).some((x) => errors[x] !== "");
-  console.log(errors);
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     formLoginValidation.validateForm(formData).then((validationResult) => {
@@ -74,7 +71,6 @@ export const Login: React.FC<Props> = (props) => {
                 name="userName"
                 value={formData.username}
                 onChange={handleChange("username")}
-                defaultValue="Please, insert your email"
                 required
                 error={Boolean(errors.username)}
               />
@@ -94,7 +90,6 @@ export const Login: React.FC<Props> = (props) => {
                 name="password"
                 value={formData.password}
                 onChange={handleChange("password")}
-                defaultValue="Please, insert your password"
                 required
                 error={Boolean(errors.password)}
               />
