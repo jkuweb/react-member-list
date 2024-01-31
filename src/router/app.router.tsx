@@ -6,7 +6,7 @@ export const AppRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={switchRoutes.root} element={<LoginScene />} />
+        <Route path={switchRoutes.root} element={<MemberListScene />} />
         <Route path={switchRoutes.list} element={< MemberListScene/>} />
         <Route path={switchRoutes.detail} element={<MemberDetailScene/>} />
         <Route path="/*" element={<div>404 Not Found</div>}/>
